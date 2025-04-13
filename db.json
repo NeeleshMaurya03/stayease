@@ -1,0 +1,505 @@
+{
+  "listings": [
+    {
+      "id": "1",
+      "name": "Premium Private Room in Noida Sector 62",
+      "address": "A-56, Sector 62, Noida, Uttar Pradesh 201309",
+      "price": 350,
+      "rentUnit": "day",
+      "monthlyPrice": 9000,
+      "propertyType": "Private Room",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "area": "250 sq ft",
+      "amenitiesCount": 8,
+      "description": "Spacious private room in a premium society, just 5 mins walk from Noida Sector 62 metro station. Ideal for working professionals with 24/7 security, power backup, and high-speed WiFi.",
+      "features": [
+        "High-speed WiFi",
+        "Air Conditioning",
+        "Power Backup",
+        "24x7 Security",
+        "Parking",
+        "Housekeeping",
+        "Laundry Service",
+        "RO Water"
+      ],
+      "images": [
+        "/assets/1.jpeg",
+        "/assets/1_1.jpeg",
+        "/assets/1_2.jpeg"
+      ],
+      "nearbyPlaces": [
+        "Noida Sector 62 Metro (500m)",
+        "DLF Mall of India (1.2km)",
+        "Fortis Hospital (2km)"
+      ],
+      "availableFrom": "2023-06-15",
+      "minimumStay": 7,
+      "maxOccupancy": 1,
+      "genderPreference": "Any",
+      "nearMetro": true,
+      "metroDistance": 0.5,
+      "contact": {
+        "name": "Rajesh Kumar",
+        "phone": "+91 9876543210",
+        "isVerified": true,
+        "joinDate": "2022-01-15"
+      },
+      "rating": 4.7,
+      "reviewsCount": 24,
+      "isFavorite": false
+    },
+    {
+      "id": "2",
+      "name": "Cozy PG for Girls in Greater Noida",
+      "address": "Gaur City, Beta 1, Greater Noida, Uttar Pradesh 201310",
+      "price": 400,
+      "rentUnit": "day",
+      "monthlyPrice": 10000,
+      "propertyType": "PG Room",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "area": "180 sq ft",
+      "amenitiesCount": 7,
+      "description": "Safe and comfortable PG accommodation exclusively for girls with hygienic home-cooked food options. Located in a peaceful residential area with CCTV surveillance.",
+      "features": [
+        "WiFi",
+        "Laundry",
+        "CCTV",
+        "Home-Cooked Meals",
+        "RO Water",
+        "Housekeeping",
+        "Power Backup"
+      ],
+      "images": [
+        "/assets/2.jpeg",
+        "/assets/2_1.jpeg"
+      ],
+      "nearbyPlaces": [
+        "Gaur City Mall (800m)",
+        "Galgotias University (3km)",
+        "Fortis Hospital (4km)"
+      ],
+      "availableFrom": "2023-06-01",
+      "minimumStay": 15,
+      "maxOccupancy": 2,
+      "genderPreference": "Female",
+      "nearMetro": false,
+      "metroDistance": 6,
+      "contact": {
+        "name": "Neha Sharma",
+        "phone": "+91 8765432109",
+        "isVerified": true,
+        "joinDate": "2021-11-20"
+      },
+      "rating": 4.5,
+      "reviewsCount": 18,
+      "isFavorite": false
+    },
+    {
+      "id": "3",
+      "name": "Fully Furnished 1 BHK in Indirapuram",
+      "address": "Gyan Khand 2, Indirapuram, Ghaziabad, Uttar Pradesh 201014",
+      "price": 500,
+      "rentUnit": "day",
+      "monthlyPrice": 13000,
+      "propertyType": "Flat",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "area": "450 sq ft",
+      "amenitiesCount": 9,
+      "description": "Beautiful 1BHK flat with modern furnishings, modular kitchen and balcony. Perfect for couples or small families. Located in a premium society with all amenities.",
+      "features": [
+        "WiFi",
+        "Fully Furnished",
+        "Balcony",
+        "Lift",
+        "Parking",
+        "Security Guard",
+        "Power Backup",
+        "Modular Kitchen",
+        "RO Water"
+      ],
+      "images": [
+        "/assets/3.jpeg",
+        "/assets/3_1.jpeg",
+        "/assets/3_2.jpeg",
+        "/assets/3_3.jpeg"
+      ],
+      "nearbyPlaces": [
+        "Shipra Mall (1.5km)",
+        "Ahinsa Khand Metro (2km)",
+        "Max Hospital (3km)"
+      ],
+      "availableFrom": "2023-06-10",
+      "minimumStay": 30,
+      "maxOccupancy": 3,
+      "genderPreference": "Any",
+      "nearMetro": true,
+      "metroDistance": 2,
+      "contact": {
+        "name": "Suman Yadav",
+        "phone": "+91 9988776655",
+        "isVerified": true,
+        "joinDate": "2022-03-05"
+      },
+      "rating": 4.8,
+      "reviewsCount": 32,
+      "isFavorite": false
+    },
+    {
+      "id": "4",
+      "name": "Luxury Studio in DLF Phase 3, Gurgaon",
+      "address": "DLF Phase 3, Gurgaon, Haryana 122002",
+      "price": 600,
+      "rentUnit": "day",
+      "monthlyPrice": 15000,
+      "propertyType": "Studio Apartment",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "area": "350 sq ft",
+      "amenitiesCount": 12,
+      "description": "Premium studio apartment in DLF with access to all luxury amenities including swimming pool, gym and club house. Ideal for corporate stays.",
+      "features": [
+        "High-speed WiFi",
+        "Swimming Pool",
+        "Gym",
+        "Power Backup",
+        "Club House",
+        "Parking",
+        "24/7 Security",
+        "Housekeeping",
+        "Laundry Service",
+        "AC",
+        "Modular Kitchen",
+        "RO Water"
+      ],
+      "images": [
+        "/assets/4.jpeg",
+        "/assets/4_1.jpeg",
+        "/assets/4_2.jpeg",
+        "/assets/4_3.jpeg"
+      ],
+      "nearbyPlaces": [
+        "DLF Cyber City (1km)",
+        "Sikanderpur Metro (500m)",
+        "Medanta Hospital (3km)"
+      ],
+      "availableFrom": "2023-05-25",
+      "minimumStay": 7,
+      "maxOccupancy": 2,
+      "genderPreference": "Any",
+      "nearMetro": true,
+      "metroDistance": 0.5,
+      "contact": {
+        "name": "Ritika Mehra",
+        "phone": "+91 9090909090",
+        "isVerified": true,
+        "joinDate": "2021-09-12"
+      },
+      "rating": 4.9,
+      "reviewsCount": 45,
+      "isFavorite": false
+    },
+    {
+      "id": "5",
+      "name": "Safe Shared Room for Girls in Lajpat Nagar",
+      "address": "Lajpat Nagar 4, New Delhi 110024",
+      "price": 300,
+      "rentUnit": "day",
+      "monthlyPrice": 8000,
+      "propertyType": "Shared Room",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "area": "200 sq ft",
+      "amenitiesCount": 7,
+      "description": "Exclusive shared accommodation for working women with strict security measures including CCTV surveillance and women-only policy. Located in prime South Delhi location.",
+      "features": [
+        "WiFi",
+        "Women Only",
+        "CCTV Surveillance",
+        "Laundry",
+        "Kitchen Access",
+        "Housekeeping",
+        "Power Backup"
+      ],
+      "images": [
+        "/assets/5.jpeg",
+        "/assets/5_1.jpeg"
+      ],
+      "nearbyPlaces": [
+        "Lajpat Nagar Metro (500m)",
+        "Moolchand Hospital (1.5km)",
+        "South Extension Market (2km)"
+      ],
+      "availableFrom": "2023-06-05",
+      "minimumStay": 15,
+      "maxOccupancy": 2,
+      "genderPreference": "Female",
+      "nearMetro": true,
+      "metroDistance": 0.5,
+      "contact": {
+        "name": "Anjali Verma",
+        "phone": "+91 9123456789",
+        "isVerified": true,
+        "joinDate": "2022-02-18"
+      },
+      "rating": 4.6,
+      "reviewsCount": 28,
+      "isFavorite": false
+    },
+    {
+      "id": "6",
+      "name": "Student PG near Delhi University",
+      "address": "Kamla Nagar, New Delhi 110007",
+      "price": 350,
+      "rentUnit": "day",
+      "monthlyPrice": 9000,
+      "propertyType": "PG Room",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "area": "180 sq ft",
+      "amenitiesCount": 6,
+      "description": "Perfect accommodation for DU students with study-friendly environment, library access and home-style meals. Just 10 mins walk from North Campus.",
+      "features": [
+        "WiFi",
+        "Study Desk",
+        "Library Access",
+        "Home Meals",
+        "Laundry",
+        "Power Backup"
+      ],
+      "images": [
+        "/assets/6.jpeg",
+        "/assets/6_1.jpeg"
+      ],
+      "nearbyPlaces": [
+        "Delhi University (800m)",
+        "GTB Nagar Metro (1.2km)",
+        "Hindu Rao Hospital (1.5km)"
+      ],
+      "availableFrom": "2023-06-20",
+      "minimumStay": 30,
+      "maxOccupancy": 2,
+      "genderPreference": "Any",
+      "nearMetro": true,
+      "metroDistance": 1.2,
+      "contact": {
+        "name": "Deepak Singh",
+        "phone": "+91 9871234567",
+        "isVerified": true,
+        "joinDate": "2021-12-05"
+      },
+      "rating": 4.4,
+      "reviewsCount": 22,
+      "isFavorite": false
+    },
+    {
+      "id": "7",
+      "name": "Modern Private Room in Viman Nagar, Pune",
+      "address": "Viman Nagar, Pune, Maharashtra 411014",
+      "price": 400,
+      "rentUnit": "day",
+      "monthlyPrice": 11000,
+      "propertyType": "Private Room",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "area": "220 sq ft",
+      "amenitiesCount": 8,
+      "description": "Comfortable and clean private room near IT parks with attached bathroom and all modern amenities. Suitable for working professionals.",
+      "features": [
+        "High-speed WiFi",
+        "Power Backup",
+        "Attached Bathroom",
+        "Parking",
+        "CCTV",
+        "Housekeeping",
+        "Laundry Service",
+        "RO Water"
+      ],
+      "images": [
+        "/assets/7.jpeg",
+        "/assets/7_1.jpeg",
+        "/assets/7_2.jpeg"
+      ],
+      "nearbyPlaces": [
+        "Kharadi IT Park (3km)",
+        "Phoenix Marketcity (2km)",
+        "Ruby Hall Clinic (4km)"
+      ],
+      "availableFrom": "2023-06-08",
+      "minimumStay": 15,
+      "maxOccupancy": 1,
+      "genderPreference": "Any",
+      "nearMetro": false,
+      "metroDistance": 5,
+      "contact": {
+        "name": "Priya Joshi",
+        "phone": "+91 9988998877",
+        "isVerified": true,
+        "joinDate": "2022-04-15"
+      },
+      "rating": 4.7,
+      "reviewsCount": 19,
+      "isFavorite": false
+    },
+    {
+      "id": "8",
+      "name": "2BHK Flat Sharing in Koramangala",
+      "address": "5th Block, Koramangala, Bangalore, Karnataka 560034",
+      "price": 500,
+      "rentUnit": "day",
+      "monthlyPrice": 13000,
+      "propertyType": "Flat Share",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "area": "800 sq ft",
+      "amenitiesCount": 10,
+      "description": "Share this spacious 2BHK flat with other working professionals. Well-connected location with all modern amenities including washing machine and refrigerator.",
+      "features": [
+        "WiFi",
+        "Washing Machine",
+        "Refrigerator",
+        "Parking",
+        "24/7 Security",
+        "Power Backup",
+        "Housekeeping",
+        "Modular Kitchen",
+        "RO Water",
+        "TV"
+      ],
+      "images": [
+        "/assets/8.jpeg",
+        "/assets/8_1.jpeg",
+        "/assets/8_2.jpeg",
+        "/assets/8_3.jpeg"
+      ],
+      "nearbyPlaces": [
+        "Forum Mall (1km)",
+        "Koramangala Water Tank (500m)",
+        "Apollo Hospital (2km)"
+      ],
+      "availableFrom": "2023-06-12",
+      "minimumStay": 30,
+      "maxOccupancy": 4,
+      "genderPreference": "Any",
+      "nearMetro": false,
+      "metroDistance": 3,
+      "contact": {
+        "name": "Aman Verma",
+        "phone": "+91 9765432198",
+        "isVerified": true,
+        "joinDate": "2021-10-22"
+      },
+      "rating": 4.5,
+      "reviewsCount": 26,
+      "isFavorite": false
+    },
+    {
+      "id": "9",
+      "name": "Boys PG with Gym near MG Road",
+      "address": "MG Road, Gurgaon, Haryana 122002",
+      "price": 450,
+      "rentUnit": "day",
+      "monthlyPrice": 12000,
+      "propertyType": "PG Room",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "area": "200 sq ft",
+      "amenitiesCount": 9,
+      "description": "Exclusive boys PG with gaming zone and gym facilities. Perfect for young professionals looking for active lifestyle with like-minded people.",
+      "features": [
+        "WiFi",
+        "Gaming Zone",
+        "Gym",
+        "CCTV",
+        "Power Backup",
+        "Housekeeping",
+        "Laundry Service",
+        "RO Water",
+        "TV"
+      ],
+      "images": [
+        "/assets/9.jpeg",
+        "/assets/9_1.jpeg",
+        "/assets/9_2.jpeg"
+      ],
+      "nearbyPlaces": [
+        "MG Road Metro (300m)",
+        "Gurgaon Cyber City (1.5km)",
+        "Artemis Hospital (3km)"
+      ],
+      "availableFrom": "2023-06-03",
+      "minimumStay": 15,
+      "maxOccupancy": 2,
+      "genderPreference": "Male",
+      "nearMetro": true,
+      "metroDistance": 0.3,
+      "contact": {
+        "name": "Karan Mehta",
+        "phone": "+91 9786543210",
+        "isVerified": true,
+        "joinDate": "2022-01-10"
+      },
+      "rating": 4.6,
+      "reviewsCount": 31,
+      "isFavorite": false
+    },
+    {
+      "id": "10",
+      "name": "Luxury Sea View Studio in Andheri West",
+      "address": "Lokhandwala Complex, Andheri West, Mumbai, Maharashtra 400053",
+      "price": 600,
+      "rentUnit": "day",
+      "monthlyPrice": 16000,
+      "propertyType": "Studio Apartment",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "area": "400 sq ft",
+      "amenitiesCount": 13,
+      "description": "Stunning studio apartment with partial sea view in prime Mumbai location. Fully furnished with premium amenities including swimming pool and gym access.",
+      "features": [
+        "High-speed WiFi",
+        "Swimming Pool",
+        "Gym",
+        "Parking",
+        "24/7 Security",
+        "Sea View",
+        "Fully Furnished",
+        "Lift",
+        "AC",
+        "Housekeeping",
+        "Laundry Service",
+        "Modular Kitchen",
+        "RO Water"
+      ],
+      "images": [
+        "/assets/10.jpeg",
+        "/assets/10_1.jpeg",
+        "/assets/10_2.jpeg",
+        "/assets/10_3.jpeg",
+        "/assets/10_4.jpeg"
+      ],
+      "nearbyPlaces": [
+        "Versova Beach (1.5km)",
+        "Infinity Mall (2km)",
+        "Kokilaben Hospital (3km)"
+      ],
+      "availableFrom": "2023-06-18",
+      "minimumStay": 7,
+      "maxOccupancy": 2,
+      "genderPreference": "Any",
+      "nearMetro": true,
+      "metroDistance": 1,
+      "contact": {
+        "name": "Sneha Kapoor",
+        "phone": "+91 9988123456",
+        "isVerified": true,
+        "joinDate": "2021-08-15"
+      },
+      "rating": 4.9,
+      "reviewsCount": 48,
+      "isFavorite": false
+    }
+  ]
+}
