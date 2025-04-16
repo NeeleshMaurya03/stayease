@@ -1,7 +1,22 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
-import { FaUserPlus, FaLock, FaEnvelope, FaSpinner, FaEye, FaEyeSlash } from "react-icons/fa";
+import { 
+  FaUserPlus, 
+  FaLock, 
+  FaEnvelope, 
+  FaSpinner, 
+  FaEye, 
+  FaEyeSlash, 
+  FaGoogle 
+} from "react-icons/fa";
+import { 
+  createUserWithEmailAndPassword, 
+  signInWithPopup, 
+  GoogleAuthProvider 
+} from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+import { auth, db } from "../firebase";
+import { useAuth } from "../context/AuthContext";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
@@ -9,11 +24,16 @@ export default function SignUp() {
     password: "",
     confirmPassword: ""
   });
-  const [loading, setLoading] = useState(false);
+  const [isHost, setIsHost] = useState(false);
+  const [loading, setLoading] = useState({
+    email: false,
+    google: false
+  });
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
+  const { setCurrentUser } = useAuth();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,7 +41,6 @@ export default function SignUp() {
       ...prev,
       [name]: value
     }));
-    // Clear error when user types
     if (errors[name]) {
       setErrors(prev => ({
         ...prev,
@@ -45,7 +64,7 @@ export default function SignUp() {
       newErrors.password = "Password must be at least 6 characters";
     }
     
-    if (formData.password !== formData.confirmPassword) {
+    if (formData.confirmPassword !== formData.password) {
       newErrors.confirmPassword = "Passwords do not match";
     }
     
@@ -53,26 +72,67 @@ export default function SignUp() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleEmailSignUp = async (e) => {
     e.preventDefault();
-    
     if (!validateForm()) return;
 
     try {
-      setLoading(true);
-      const response = await axios.post('https://reqres.in/api/register', {
-        email: formData.email,
-        password: formData.password,
-      });
+      setLoading(prev => ({ ...prev, email: true }));
+      const { user } = await createUserWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.password
+      );
       
-      localStorage.setItem("token", response.data.token);
-      navigate("/profile");
+      // Save additional user data to Firestore
+      const userRef = doc(db, "users", user.uid);
+      await setDoc(userRef, {
+        email: user.email,
+        isHost,
+        createdAt: new Date()
+      }, { merge: true });
+
+      setCurrentUser({ ...user, isHost });
+      navigate("/dashboard");
     } catch (error) {
+      console.error('Signup error:', error);
       setErrors({
-        apiError: error.response?.data?.error || "Registration failed. Please try again."
+        apiError: error.code === "auth/email-already-in-use" 
+          ? "Email already in use. Try signing in or use a different email." 
+          : error.code === "auth/weak-password" 
+          ? "Password should be at least 6 characters" 
+          : "Registration failed. Please try again."
       });
     } finally {
-      setLoading(false);
+      setLoading(prev => ({ ...prev, email: false }));
+    }
+  };
+
+  const handleGoogleSignUp = async () => {
+    try {
+      setLoading(prev => ({ ...prev, google: true }));
+      const provider = new GoogleAuthProvider();
+      const { user } = await signInWithPopup(auth, provider);
+      
+      // Save additional user data to Firestore
+      const userRef = doc(db, "users", user.uid);
+      await setDoc(userRef, {
+        email: user.email,
+        isHost: false,
+        createdAt: new Date()
+      }, { merge: true });
+
+      setCurrentUser({ ...user, isHost: false });
+      navigate("/dashboard");
+    } catch (error) {
+      console.error('Google sign-up error:', error);
+      setErrors({
+        apiError: error.code === "auth/popup-closed-by-user" 
+          ? "Sign-up window was closed" 
+          : "Google sign-up failed. Please try again."
+      });
+    } finally {
+      setLoading(prev => ({ ...prev, google: false }));
     }
   };
 
@@ -96,7 +156,35 @@ export default function SignUp() {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <button
+            onClick={handleGoogleSignUp}
+            disabled={loading.google || loading.email}
+            className={`w-full flex items-center justify-center gap-2 py-3 px-4 mb-6 rounded-lg font-medium border ${
+              loading.google 
+                ? "bg-gray-100 border-gray-200 text-gray-400" 
+                : "bg-white border-gray-300 text-gray-700 hover:bg-gray-50"
+            }`}
+          >
+            {loading.google ? (
+              <FaSpinner className="animate-spin" />
+            ) : (
+              <>
+                <FaGoogle className="text-red-500" />
+                Continue with Google
+              </>
+            )}
+          </button>
+
+          <div className="relative flex items-center justify-center my-6">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-300"></div>
+            </div>
+            <div className="relative px-2 bg-white text-sm text-gray-500">
+              or sign up with email
+            </div>
+          </div>
+
+          <form onSubmit={handleEmailSignUp} className="space-y-6">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                 Email Address
@@ -115,7 +203,7 @@ export default function SignUp() {
                   }`}
                   value={formData.email}
                   onChange={handleChange}
-                  disabled={loading}
+                  disabled={loading.email || loading.google}
                 />
               </div>
               {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
@@ -139,7 +227,7 @@ export default function SignUp() {
                   }`}
                   value={formData.password}
                   onChange={handleChange}
-                  disabled={loading}
+                  disabled={loading.email || loading.google}
                 />
                 <button
                   type="button"
@@ -175,7 +263,7 @@ export default function SignUp() {
                   }`}
                   value={formData.confirmPassword}
                   onChange={handleChange}
-                  disabled={loading}
+                  disabled={loading.email || loading.google}
                 />
                 <button
                   type="button"
@@ -193,20 +281,31 @@ export default function SignUp() {
               {errors.confirmPassword && <p className="mt-1 text-sm text-red-600">{errors.confirmPassword}</p>}
             </div>
 
+            <label className="flex items-center mt-4">
+              <input 
+                type="checkbox" 
+                checked={isHost} 
+                onChange={() => setIsHost(!isHost)}
+                className="rounded text-pink-500"
+                disabled={loading.email || loading.google}
+              />
+              <span className="ml-2">I want to list my property as a host</span>
+            </label>
+
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading.email || loading.google}
               className={`w-full flex justify-center items-center py-3 px-4 rounded-lg font-medium text-white ${
-                loading ? 'bg-pink-400 cursor-not-allowed' : 'bg-pink-600 hover:bg-pink-700'
+                loading.email || loading.google ? 'bg-pink-400 cursor-not-allowed' : 'bg-pink-600 hover:bg-pink-700'
               }`}
             >
-              {loading ? (
+              {loading.email ? (
                 <>
                   <FaSpinner className="animate-spin mr-2" />
                   Creating Account...
                 </>
               ) : (
-                "Sign Up"
+                "Sign Up with Email"
               )}
             </button>
           </form>

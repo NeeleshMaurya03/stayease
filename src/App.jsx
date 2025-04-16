@@ -13,75 +13,80 @@ import Host from "./components/BecomeHost";
 import MapView from "./components/MapView";
 import Favorites from "./components/Favorites";
 import Themes from "./components/Themes";
+import Loader from './components/Loader';
+import GuestDashboard from './components/dashboard/GuestDashboard';
+import HostDashboard from './components/dashboard/HostDashboard';
+import DashboardRedirect from './components/DashboardRedirect';
+import { AuthProvider } from "./context/AuthContext";
+import { useAuth } from "./context/AuthContext"; 
 
 function App() {
   return (
-    <Router>
-      <div className="flex flex-col min-h-screen">
-        {/* Navbar always visible */}
-        <Navbar />
-        <div className="flex-grow">
-          <Routes>
-            {/* Home Route */}
-            <Route path="/" element={<HomePage />} />
+    <AuthProvider>
+      <Router>
+        <div className="flex flex-col min-h-screen">
+          {/* Navbar always visible */}
+          <Navbar />
+          <div className="flex-grow">
+            <Routes>
+              {/* Home Route */}
+              <Route path="/" element={<HomePage />} />
 
-            {/* Find Stay Route */}
-            <Route path="/find-stay" element={<FindStay />} />
+              {/* Find Stay Route */}
+              <Route path="/find-stay" element={<FindStay />} />
 
-            {/* Stay Detail Route */}
-            <Route path="/stay/:id" element={<StayDetail />} />
+              {/* Stay Detail Route */}
+              <Route path="/stay/:id" element={<StayDetail />} />
 
-            {/* Authentication Routes */}
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route 
-              path="/profile" 
-              element={
-                <ProtectedRoute>
-                  <Profile />
-                </ProtectedRoute>
-              } 
-            />
+              {/* Authentication Routes */}
+              <Route path="/signin" element={<SignIn />} />
+              <Route path="/signup" element={<SignUp />} />
+              
+              {/* Protected Routes */}
+              <Route element={<ProtectedRoute />}>
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/dashboard" element={<DashboardRedirect />} />
+                <Route path="/explore" element={<GuestDashboard />} />
+                <Route path="/host" element={<HostDashboard />} />
+                <Route path="/favorites" element={<Favorites />} />
+              </Route>
 
-            {/* Contact Route */}
-            <Route path="/contact" element={<Contact />} />
+              {/* Contact Route */}
+              <Route path="/contact" element={<Contact />} />
 
-            {/* Host Route */}
-            <Route path="/become-host" element={<Host />} />
+              {/* Host Route */}
+              <Route path="/become-host" element={<Host />} />
 
-            {/* Map View Route */}
-            <Route path="/map-view" element={<MapView />} />
+              {/* Map View Route */}
+              <Route path="/map-view" element={<MapView />} />
 
-            {/* Favorites Route - Protected */}
-            <Route 
-              path="/favorites" 
-              element={
-                <ProtectedRoute>
-                  <Favorites />
-                </ProtectedRoute>
-              } 
-            />
+              {/* Themes Route */}
+              <Route path="/themes" element={<Themes />} />
 
-            {/* Themes Route */}
-            <Route path="/themes" element={<Themes />} />
-
-            {/* Redirect unknown routes to home */}
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
+              {/* Redirect unknown routes to home */}
+              <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+          </div>
+          {/* Footer (fixed at the bottom) */}
+          <Footer />
         </div>
-        {/* Footer (fixed at the bottom) */}
-        <Footer />
-      </div>
-    </Router>
+      </Router>
+    </AuthProvider>
   );
 }
 
-// ProtectedRoute component to check authentication
+// Updated ProtectedRoute with Firebase integration
 function ProtectedRoute({ children }) {
-  const token = localStorage.getItem("token");
-  if (!token) {
+  const { currentUser, loading } = useAuth();
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  if (!currentUser) {
     return <Navigate to="/signin" replace />;
   }
+
   return children;
 }
 
