@@ -10,9 +10,8 @@ import Profile from "./components/Profile";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 import Host from "./components/BecomeHost";
-import MapView from "./components/MapView";
-import Favorites from "./components/Favorites";
-import Themes from "./components/Themes";
+
+
 import Loader from './components/Loader';
 import GuestDashboard from './components/dashboard/GuestDashboard';
 import HostDashboard from './components/dashboard/HostDashboard';
@@ -48,7 +47,7 @@ function App() {
                 <Route path="/dashboard" element={<DashboardRedirect />} />
                 <Route path="/explore" element={<GuestDashboard />} />
                 <Route path="/host" element={<HostDashboard />} />
-                <Route path="/favorites" element={<Favorites />} />
+              
               </Route>
 
               {/* Contact Route */}
@@ -57,11 +56,9 @@ function App() {
               {/* Host Route */}
               <Route path="/become-host" element={<Host />} />
 
-              {/* Map View Route */}
-              <Route path="/map-view" element={<MapView />} />
+            
 
-              {/* Themes Route */}
-              <Route path="/themes" element={<Themes />} />
+             
 
               {/* Redirect unknown routes to home */}
               <Route path="*" element={<Navigate to="/" />} />

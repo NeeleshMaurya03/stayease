@@ -84,15 +84,7 @@ const Footer = () => {
                   Offers
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/map-view"
-                  className="text-gray-400 hover:text-green-400 transition-colors"
-                  aria-label="Navigate to Map View"
-                >
-                  Map View
-                </Link>
-              </li>
+              
             </ul>
           </div>
 
